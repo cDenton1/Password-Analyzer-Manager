@@ -393,10 +393,12 @@ def check_rockyou(password, mPassword, output_widget):
     word_strengths = [10, 10]  # [Original password strength, Modified password strength]
     matching_words = []
     matching_words_modified = []
+    fileFound = False
 
     try:
         with open("rockyou.txt", "r", encoding="utf-8", errors="ignore") as file:
             # Memory-map the file for efficient reading
+            fileFound = True
             with mmap.mmap(file.fileno(), 0, access=mmap.ACCESS_READ) as mmapped_file:
                 # begin comparing and adjusting score
                 for line in iter(mmapped_file.readline, b""):
@@ -414,7 +416,8 @@ def check_rockyou(password, mPassword, output_widget):
                         word_strengths[1] = max(0, word_strengths[1] - 1)
 
     except FileNotFoundError:
-        return 0
+        word_strengths[0] = 0
+        word_strengths[1] = 0
 
     # Find common words in both lists
     common_words = list(set(matching_words) & set(matching_words_modified))
@@ -426,6 +429,8 @@ def check_rockyou(password, mPassword, output_widget):
         output_widget.insert("end", "There were matching passwords in rockyou.txt found in your modified password.\n")
     elif word_strengths[0] < 10 and word_strengths[1] == 10:
         output_widget.insert("end", "There were matching passwords in rockyou.txt found in your password.\n")
+    elif fileFound == False:
+        output_widget.insert("end", "rockyou.txt wasn't found, wasn't able to compare the input, automatically setting the score to zero.\n")
     else:
         output_widget.insert("end", f"There were matching passwords in rockyou.txt found in both original and modified passwords.\n")
 
