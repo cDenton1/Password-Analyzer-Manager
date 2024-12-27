@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
-import finalCode
+import analyzeCode
 import manageCode
 import pickle
 from servClass import services
