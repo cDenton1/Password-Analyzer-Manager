@@ -1,6 +1,5 @@
 import string
 import tkinter as tk
-import guiCode
 import os
 import mmap
 import pickle
@@ -8,11 +7,6 @@ from servClass import services
 from tkinter import filedialog
 from tkinter import messagebox
 import sys
-
-# function to get users input * NO LONGER IN USE *
-def get_input():
-    password = finalGUIcode.input_box.get()         # store user input
-    print(f"The password entered: {password}")      # print entered password out
 
 # function to print output and call functions used for analyzing    * DEBUGGED WITH AI *
 def analyze(password, output_widget):
