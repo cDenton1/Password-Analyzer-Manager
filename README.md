@@ -8,5 +8,5 @@ Final project for my ITSC-203 class, Scripting for Tool Construction <br>
 ## About <br>
 The purpose of the program is to offer actual feedback to a users password and a strength score that properly aligns with what makes a strong password. In todays reality websites don't properly check for strong passwords, they check for very minimal things, and sometime even include a strength meter that focuses on components they deem strong, but actually aren't. Along with analyzing the users input, there is also the choice to store the password in the manager, which is password protected. So while you check to make sure your password is actually strong, you can also store them all in one place, locally on your device, behind a password so you never have to worry about forgetting them or having them leaked in a data breach. <br>
 ## Read More <br>
-* Blog Article: [link]
-* LinkedIn Project: [link]
+* Blog Article: <a href=https://my-cybersec-journey.hashnode.dev/password-analyzer-manager>Password Analyzer & Manager</a>
+* LinkedIn Project: <a href=https://www.linkedin.com/in/chloe-denton/details/projects/>LinkedIn Project Details</a>
